@@ -1,0 +1,4 @@
+id: ct_001_formal_email
+name: Correo formal en español
+prompt: prompt.md
+cases: cases.jsonl

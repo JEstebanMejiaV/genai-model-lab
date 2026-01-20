@@ -1,0 +1,24 @@
+name: CI Smoke
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Smoke suites (mock)
+        run: |
+          python tools/run_suite.py --model mock --suite programming_general --tasks pg_001_function_implementation --max-cases 1
+          python tools/run_suite.py --model mock --suite data_programming --tasks dp_001_sql_query --max-cases 1
+          python tools/run_suite.py --model mock --suite communication_tone --tasks ct_001_formal_email --max-cases 1

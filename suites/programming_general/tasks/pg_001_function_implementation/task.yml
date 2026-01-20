@@ -1,0 +1,4 @@
+id: pg_001_function_implementation
+name: Implementación de función con tests (palíndromo)
+prompt: prompt.md
+cases: cases.jsonl
