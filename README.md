@@ -65,7 +65,8 @@ pip install openai
 
 2. Configura variables:
 - OpenAI: `OPENAI_API_KEY`
-- DeepSeek: `DEEPSEEK_API_KEY` y `DEEPSEEK_BASE_URL` (consulta doc oficial para la URL exacta)
+- DeepSeek: `DEEPSEEK_API_KEY` 
+`DEEPSEEK_BASE_URL` 
 
 3. Ejecuta:
 
@@ -81,7 +82,7 @@ Luego de correr varios modelos/suites:
 python tools/aggregate.py
 ```
 
-## Estructura clave
+## Estructura
 - `suites/`: suites y tareas. Cada tarea vive en una carpeta con `task.yml`, `prompt.md`, `cases.jsonl` y `evaluator.py`.
 - `models/`: adapters y registry de modelos.
 - `runs/`: salidas por ejecución (metadatos, resultados y artifacts).
