@@ -1,0 +1,10 @@
+# Dependencias opcionales para comparar proveedores reales.
+# Instala solo lo que necesites.
+
+openai>=1.0.0
+litellm>=1.0.0
+
+# (Opcional) algunos setups de LiteLLM pueden requerir SDKs adicionales,
+# dependiendo del proveedor y el modo de autenticación.
+anthropic>=0.30.0
+google-generativeai>=0.7.0

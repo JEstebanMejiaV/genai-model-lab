@@ -1,0 +1,69 @@
+# Registry de modelos. Ajusta y agrega modelos según vayan apareciendo.
+
+presets:
+  strict:
+    temperature: 0.0
+    top_p: 1.0
+    max_tokens: 1200
+  balanced:
+    temperature: 0.3
+    top_p: 1.0
+    max_tokens: 1800
+
+models:
+  - id: mock
+    provider: mock
+    preset: strict
+    params: {}
+
+  # --- OpenAI (vía SDK OpenAI) ---
+  # Requiere: OPENAI_API_KEY (y `pip install openai`)
+  - id: openai_gpt_4o_mini_strict
+    provider: openai
+    preset: strict
+    params:
+      model: gpt-4o-mini
+
+  # Alternativa: usar LiteLLM para unificar (mismo modelo, otro adapter)
+  # Requiere: OPENAI_API_KEY (y `pip install litellm`)
+  - id: openai_gpt_4o_mini_litellm
+    provider: litellm
+    preset: balanced
+    params:
+      model: openai/gpt-4o-mini
+
+  # --- Claude (Anthropic) vía LiteLLM ---
+  # Requiere: ANTHROPIC_API_KEY (y `pip install litellm`)
+  # Nota: ajusta el nombre exacto del modelo según el proveedor.
+  - id: claude_sonnet_litellm
+    provider: litellm
+    preset: balanced
+    params:
+      model: anthropic/claude-3-5-sonnet
+
+  # --- Gemini (Google) vía LiteLLM ---
+  # Requiere: GOOGLE_API_KEY o GEMINI_API_KEY (según tu setup de LiteLLM)
+  # Nota: ajusta el nombre exacto del modelo según el proveedor.
+  - id: gemini_pro_litellm
+    provider: litellm
+    preset: balanced
+    params:
+      model: gemini/gemini-1.5-pro
+
+  # --- DeepSeek (OpenAI-compatible) ---
+  # Requiere: DEEPSEEK_API_KEY y DEEPSEEK_BASE_URL (consulta la doc oficial para la URL)
+  # Usa el adapter OpenAI (OpenAI SDK) pero leyendo credenciales por variables de entorno.
+  - id: deepseek_chat_openai_compat
+    provider: openai
+    preset: balanced
+    params:
+      model: deepseek-chat
+      api_key_env: DEEPSEEK_API_KEY
+      base_url_env: DEEPSEEK_BASE_URL
+
+  # Alternativa: DeepSeek vía LiteLLM
+  - id: deepseek_chat_litellm
+    provider: litellm
+    preset: balanced
+    params:
+      model: deepseek/deepseek-chat

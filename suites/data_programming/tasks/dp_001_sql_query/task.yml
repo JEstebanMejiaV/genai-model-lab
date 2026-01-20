@@ -1,0 +1,4 @@
+id: dp_001_sql_query
+name: SQL en SQLite con dataset semilla
+prompt: prompt.md
+cases: cases.jsonl
