@@ -21,14 +21,14 @@ pip install -r requirements.txt
 
 ## Ejecutar un smoke test (modelo mock)
 ```bash
-python tools/run_suite.py --model mock --suite programming_general --tasks pg_001_function_implementation --max-cases 1
+python -m tools.run_suite --model mock --suite programming_general --tasks pg_001_function_implementation --max-cases 1
 ```
 
 ## Ejecutar todas las suites con modelo mock
 ```bash
-python tools/run_suite.py --model mock --suite programming_general
-python tools/run_suite.py --model mock --suite data_programming
-python tools/run_suite.py --model mock --suite communication_tone
+python -m tools.run_suite --model mock --suite programming_general
+python -m tools.run_suite --model mock --suite data_programming
+python -m tools.run_suite --model mock --suite communication_tone
 ```
 
 ## Probar con un proveedor real
@@ -50,10 +50,10 @@ pip install litellm
 3. Usa los modelos ya registrados en `models/registry.yml`:
 
 ```bash
-python tools/run_suite.py --model openai_gpt_4o_mini_litellm --suite programming_general
-python tools/run_suite.py --model claude_sonnet_litellm --suite programming_general
-python tools/run_suite.py --model gemini_pro_litellm --suite programming_general
-python tools/run_suite.py --model deepseek_chat_litellm --suite programming_general
+python -m tools.run_suite --model openai_gpt_4o_mini_litellm --suite programming_general
+python -m tools.run_suite --model claude_sonnet_litellm --suite programming_general
+python -m tools.run_suite --model gemini_pro_litellm --suite programming_general
+python -m tools.run_suite --model deepseek_chat_litellm --suite programming_general
 ```
 
 ### Opción B: OpenAI SDK (OpenAI y endpoints compatibles, por ejemplo DeepSeek)
@@ -71,8 +71,8 @@ pip install openai
 3. Ejecuta:
 
 ```bash
-python tools/run_suite.py --model openai_gpt_4o_mini_strict --suite programming_general
-python tools/run_suite.py --model deepseek_chat_openai_compat --suite programming_general
+python -m tools.run_suite --model openai_gpt_4o_mini_strict --suite programming_general
+python -m tools.run_suite --model deepseek_chat_openai_compat --suite programming_general
 ```
 
 ### Construir el leaderboard
